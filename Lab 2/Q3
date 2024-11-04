@@ -1,0 +1,21 @@
+def create_dictionary(names):
+    name_dict = {}
+    for name in names:
+        first_letter = name[0].lower()
+        if first_letter not in name_dict:
+            name_dict[first_letter] = []
+        name_dict[first_letter].append(name)
+
+    for key in name_dict:
+        name_dict[key].sort()
+
+    return name_dict
+
+
+input_names = input("Enter names separated by commas: ")
+names_list = [name.strip() for name in input_names.split(",")]
+result = create_dictionary(names_list)
+
+print("The names grouped by their first letter are:")
+for key, value in result.items():
+    print(f"{key.upper()}: {value}")
