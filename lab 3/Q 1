@@ -1,0 +1,37 @@
+def calculate_area (shape ,*dimensions ):
+    pi = 3.14159
+
+    if shape=='t':
+        base,height =dimensions
+        return 0.5*base*height
+    elif shape=='r':
+        width,height =dimensions
+        return width*height
+    elif shape=='s':
+        (side,)=dimensions
+        return side*side
+    elif shape=='c':
+        (radius,) =dimensions
+        return pi*radius*radius
+    else :
+        return " Invalid Shape . Use 't' for triangle, 'r' for rectangle, 's' for square, or 'c' for circle. "
+
+shape = input(f"Enter Shape : Use 't' for triangle, 'r' for rectangle, 's' for square, or 'c' for circle.\n" ).strip().lower() # split : علشان تشيل الزيادات من المسافات - lower : علشان الupper case and the lower case
+if shape == 't':
+    base = float(input("Enter Base : "))
+    height = float(input("Enter Height : "))
+    area = calculate_area(shape,base,height)
+elif shape == 'r':
+    width = float(input("Enter Width : "))
+    height = float(input("Enter Height : "))
+    area = calculate_area(shape,width,height)
+elif shape == 's':
+    side = float(input("Enter side : "))
+    area = calculate_area(shape,side)
+elif shape == 'c':
+    radius = float(input("Enter Radius : "))
+    area = calculate_area(shape,radius)
+else:
+    area = "Invalid shape. Please restart and enter a valid shape."
+
+print(f"The area of the Sahpe  you entered is : {area} ")
